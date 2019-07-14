@@ -2,9 +2,9 @@
     <string name="app_name">Marvel StormSec App</string>
 
     <!-- Empty state messages -->
-    <string name="empty_view_image_content_description">Imagem sem descrição.</string>
+    <string name="empty_view_image_content_description">Imagem não carregada.</string>
     <string name="detail_data_empty_message">Dados ainda não foram carregados.</string>
-    <string name="detail_data_description_empty">Sem descrição para o item.</string>
+    <string name="detail_data_description_empty">Sem descrição.</string>
     <!-- endregion -->
 
     <!-- Character detail sections -->
@@ -20,7 +20,10 @@
 
     <!-- region Error messages -->
     <string name="network_request_error">Erro ao tentar falar com o servidor</string>
+    <string name="network_request_error_load">Erro ao carregar herois</string>
+
     <string name="character_detail_loading_error">Error ao tentar carregar mais informações do personagem</string>
+    <string name="empty_view_message">Imagem não carregada</string>
     <!-- endregion -->
 
 </resources>

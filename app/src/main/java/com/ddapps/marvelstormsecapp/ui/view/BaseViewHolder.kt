@@ -1,8 +1,8 @@
-package com.ddapps.marvelstormsecapp.util.view
+package com.ddapps.marvelstormsecapp.ui.view
 
 import android.content.Context
+import android.support.v7.widget.RecyclerView
 import android.view.View
-import androidx.recyclerview.widget.RecyclerView
 
 
 abstract class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -1,6 +1,6 @@
 package com.ddapps.marvelstormsecapp.di.module
 
-import com.ddapps.marvelstormsecapp.ui.heroes.HeroListFragment
+import com.ddapps.marvelstormsecapp.ui.fragments.HeroListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

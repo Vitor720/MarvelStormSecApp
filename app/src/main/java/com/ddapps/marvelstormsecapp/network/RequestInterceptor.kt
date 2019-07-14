@@ -13,7 +13,7 @@ class RequestInterceptor : Interceptor {
         val timeStamp = System.currentTimeMillis()
 
         val originalRequest = chain.request()
-        val originalHttpUrl = originalRequest.url
+        val originalHttpUrl = originalRequest.url()
 
         val url = originalHttpUrl.newBuilder().apply {
             addQueryParameter("apikey", Constants.PUBLIC_API_KEY)

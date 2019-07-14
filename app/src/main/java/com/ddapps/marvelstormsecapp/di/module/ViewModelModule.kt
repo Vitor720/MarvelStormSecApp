@@ -1,12 +1,12 @@
 package com.ddapps.marvelstormsecapp.di.module
 
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.ddapps.marvelstormsecapp.viewmodels.ViewModelFactory
+import android.arch.lifecycle.ViewModel
+import android.arch.lifecycle.ViewModelProvider
 import com.ddapps.marvelstormsecapp.di.annotation.ViewModelKey
-import com.ddapps.marvelstormsecapp.ui.heroes.HeroListViewModel
-import com.ddapps.marvelstormsecapp.ui.detail.CharacterDetailViewModel
+import com.ddapps.marvelstormsecapp.viewmodels.CharacterDetailViewModel
+import com.ddapps.marvelstormsecapp.viewmodels.HeroListViewModel
+import com.ddapps.marvelstormsecapp.viewmodels.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -26,6 +26,4 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(CharacterDetailViewModel::class)
     abstract fun bindCharacterDetailViewModel(characterDetailViewModel: CharacterDetailViewModel): ViewModel
-
-
 }

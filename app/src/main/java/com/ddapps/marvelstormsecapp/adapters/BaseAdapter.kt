@@ -1,7 +1,7 @@
-package com.ddapps.marvelstormsecapp.util.view
+package com.ddapps.marvelstormsecapp.adapters
 
-import androidx.recyclerview.widget.RecyclerView
-import timber.log.Timber
+import android.support.v7.widget.RecyclerView
+import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder
 
 
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
@@ -45,14 +45,14 @@ abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>
     fun updateItem(item: T) {
         val itemPosition = items.indexOf(item)
         items[itemPosition] = item
-        Timber.i("item $item successfully updated.")
+//        Timber.i("item $item successfully updated.")
         notifyItemChanged(itemPosition)
     }
 
     fun removeItem(item: T) {
         val itemPosition = items.indexOf(item)
         if (items.remove(item)) {
-            Timber.i("item $item successfully removed.")
+//            Timber.i("item $item successfully removed.")
         }
         notifyItemRemoved(itemPosition)
     }

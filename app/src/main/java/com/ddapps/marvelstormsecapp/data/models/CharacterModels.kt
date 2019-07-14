@@ -1,10 +1,10 @@
 package com.ddapps.marvelstormsecapp.data.models
 
-import android.media.Image
 
 data class CharacterDataWrapper(val code: Int, val status: String, val data: CharacterDataContainer)
 
 data class CharacterDataContainer(val results: List<Character>)
+
 data class Character(
     val id: Long, val name: String,
     val description: String?,
@@ -16,10 +16,17 @@ data class Character(
 )
 
 data class ComicList(val available: Int, val collectionURI: String, val items: List<ComicSummary>)
+
 data class ComicSummary(val resourceURI: String, val name: String)
+
 data class StoryList(val available: Int, val collectionURI: String, val items: List<StorySummary>)
+
 data class StorySummary(val resourceURI: String, val name: String, val type: String)
+
 data class EventList(val available: Int, val collectionURI: String, val items: List<EventSummary>)
+
 data class EventSummary(val resourceURI: String, val name: String, val type: String)
+
 data class SeriesList(val available: Int, val collectionURI: String, val items: List<SeriesSummary>)
+
 data class SeriesSummary(val resourceURI: String, val name: String, val type: String)

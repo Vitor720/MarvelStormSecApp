@@ -1,7 +1,7 @@
 package com.ddapps.marvelstormsecapp.di.module
 
-import com.ddapps.marvelstormsecapp.ui.MainActivity
-import com.ddapps.marvelstormsecapp.ui.detail.CharacterDetailActivity
+import com.ddapps.marvelstormsecapp.MainActivity
+import com.ddapps.marvelstormsecapp.ui.CharacterDetailActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
