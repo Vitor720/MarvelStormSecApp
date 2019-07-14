@@ -1,6 +1,5 @@
 package com.ddapps.marvelstormsecapp.viewmodels
 
-
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.ddapps.marvelstormsecapp.R
@@ -13,7 +12,6 @@ import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
-
 
 class HeroListViewModel @Inject internal constructor(private val repository: MarvelRepository) : ViewModel(),
     OnMoreListener {

@@ -69,7 +69,7 @@ class CharacterDetailActivity : AppCompatActivity(), HasActivityInjector {
 
     }
 
-    fun loadRecylerView(recyler: RecyclerView, customAdapter: DetailDataAdapter) {
+    private fun loadRecylerView(recyler: RecyclerView, customAdapter: DetailDataAdapter) {
         recyler.apply {
             adapter = customAdapter
             layoutManager = LinearLayoutManager(context)

@@ -37,6 +37,7 @@ fun ImageView.load(activity: Activity, url: String, postponeTransition: Boolean 
                 .centerCrop()
         )
         .transition(DrawableTransitionOptions.withCrossFade(300))
+
     if (postponeTransition) {
         requestOptions = requestOptions.listener(object : RequestListener<Drawable> {
             override fun onLoadFailed(
@@ -48,6 +49,7 @@ fun ImageView.load(activity: Activity, url: String, postponeTransition: Boolean 
                 ActivityCompat.startPostponedEnterTransition(activity)
                 return true
             }
+
 
             override fun onResourceReady(
                 resource: Drawable?,

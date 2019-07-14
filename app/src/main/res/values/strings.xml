@@ -4,7 +4,7 @@
     <!-- Empty state messages -->
     <string name="empty_view_image_content_description">Imagem não carregada.</string>
     <string name="detail_data_empty_message">Dados ainda não foram carregados.</string>
-    <string name="detail_data_description_empty">Sem descrição.</string>
+    <string name="detail_data_description_empty">Personagem informações incompletas no banco de dados!</string>
     <!-- endregion -->
 
     <!-- Character detail sections -->

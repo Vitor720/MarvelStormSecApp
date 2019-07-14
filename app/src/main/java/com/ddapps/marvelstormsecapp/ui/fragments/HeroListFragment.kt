@@ -133,6 +133,9 @@ class HeroListFragment : DaggerFragment(), Injectable {
                     hero_list_recycler.recyclerView.layoutManager.onRestoreInstanceState(recyclerState)
                 }
                 heroAdapter.addItems(results)
+                for (i in results) {
+
+                }
                 //viewModel.isSearching = false
 
                 if (!hero_list_recycler.recyclerView.isShown) {

@@ -12,7 +12,6 @@ ext {
     espresso_version = '3.0.2'
     junit_version = '4.12'
     arch_components_version = '1.1.1'
-    room_version = '1.1.1'
     test_runner_version = '1.0.2'
     dagger_version = '2.2.10'
     okhttp_version = '3.10.0'
@@ -74,5 +73,19 @@ ext {
     ]
     // endregion
 
-
+    // region Testing
+    testingDependencies = [
+            junit                 : 'junit:junit:4.1.2',
+            supportTestRunner     : "com.android.support.test:runner:$support_test_version",
+            supportTestRules      : "com.android.support.test:rules:$support_test_version",
+            mockito               : "org.mockito:mockito-android:$mockito_version",
+            mockWebServer         : "com.squareup.okhttp3:mockwebserver:$okhttp_version",
+            hamcrest              : 'org.hamcrest:hamcrest-library:1.3',
+            archComponents        : "android.arch.core:core-testing:$arch_components_version",
+            espressoCore          : "com.android.support.test.espresso:espresso-core:$espresso_version",
+            espressoContrib       : "com.android.support.test.espresso:espresso-contrib:$espresso_version",
+            espressoIntents       : "com.android.support.test.espresso:espresso-intents:$espresso_version",
+            espressoIdlingResource: "com.android.support.test.espresso:espresso-idling-resource:$espresso_version"
+    ]
+    // endregion
 }

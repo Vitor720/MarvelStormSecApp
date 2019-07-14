@@ -5,13 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.ddapps.marvelstormsecapp.R
 import com.ddapps.marvelstormsecapp.data.models.DetailData
-import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder
 import com.ddapps.marvelstormsecapp.di.ktx.inflate
 import com.ddapps.marvelstormsecapp.di.ktx.load
 import com.ddapps.marvelstormsecapp.di.ktx.show
 import com.ddapps.marvelstormsecapp.di.ktx.toTypeface
+import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder
 import kotlinx.android.synthetic.main.detail_data_item.view.*
-import timber.log.Timber
 
 class DetailDataAdapter : BaseAdapter<DetailData, DetailDataAdapter.DetailDataViewHolder>() {
 
@@ -22,9 +21,9 @@ class DetailDataAdapter : BaseAdapter<DetailData, DetailDataAdapter.DetailDataVi
 
     inner class DetailDataViewHolder(itemView: View) : BaseViewHolder<DetailData>(itemView) {
         override fun bind(item: DetailData) {
-            Timber.e("Chegou no DetailDataViewHolder")
             itemView.apply {
                 detail_data_title.text = item.title
+
                 detail_data_description.text = if (item.description == null || item.description.isEmpty()) {
                     context.getString(R.string.detail_data_description_empty)
                 } else {
@@ -33,8 +32,9 @@ class DetailDataAdapter : BaseAdapter<DetailData, DetailDataAdapter.DetailDataVi
 
                 item.thumbnail?.let {
                     detail_data_image.show()
-                    detail_data_image.load(itemView.context as Activity, item.thumbnail.toString())
+                    detail_data_image.load(itemView.context as Activity, item.thumbnail.setImageToPortrait())
                 }
+
                 detail_data_title.toTypeface("OpenSans-Regular")
                 detail_data_description.toTypeface("OpenSans-Light")
             }

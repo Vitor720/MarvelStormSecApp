@@ -5,10 +5,12 @@ import kotlinx.android.parcel.Parcelize
 
 data class Image(val path: String, val extension: String) {
     override fun toString(): String {
-        return "$path.$extension"
+        return "$path/portrait_uncanny.$extension"
     }
 
-    fun xlargeLandscape() = "$path/xlarge_landscape.$extension"
+    fun setImageToPortrait() = "$path/portrait_small.$extension"
+    fun setImageToStandard() = "$path/standard_xlarge.$extension"
+    fun setImageFullRes() = "$path.$extension"
 }
 
 
