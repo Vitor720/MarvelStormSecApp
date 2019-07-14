@@ -10,7 +10,7 @@ import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder
 class CharacterAdapter : BaseAdapter<Character, BaseViewHolder<Character>>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): CharacterViewHolder {
-        val itemView = parent.inflate(R.layout.hero_item)
+        val itemView = parent.inflate(R.layout.row_character)
         return CharacterViewHolder(itemView)
     }
 }

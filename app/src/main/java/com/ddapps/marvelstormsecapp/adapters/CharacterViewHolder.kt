@@ -11,7 +11,7 @@ import com.ddapps.marvelstormsecapp.di.ktx.load
 import com.ddapps.marvelstormsecapp.di.ktx.toTypeface
 import com.ddapps.marvelstormsecapp.ui.CharacterDetailActivity
 import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder
-import kotlinx.android.synthetic.main.hero_item.view.*
+import kotlinx.android.synthetic.main.row_character.view.*
 import timber.log.Timber
 import android.support.v4.util.Pair as UtilPairCompat
 
@@ -24,41 +24,31 @@ class CharacterViewHolder(
     override fun bind(item: Character) {
 
         itemView.apply {
-            hero_name.text = item.name
+            character_name.text = item.name
             val imageUrl: String = item.thumbnail.toString()
 
-            character_description.text = if (item.description == null || item.description.isEmpty()) {
-                context.getString(com.ddapps.marvelstormsecapp.R.string.detail_data_description_empty)
-            } else {
-                item.description
-            }
-
-            character_image.load(context as Activity, item.thumbnail.toString())
+            row_background_image.load(context as Activity, imageUrl)
 
 
             itemView.setOnClickListener {
                 Timber.e("click")
-
                 val intent = Intent(context, CharacterDetailActivity::class.java)
-                val charIntentInfo =
-                    FavoriteHero(item.id, item.name, item.description, item.thumbnail.setImageFullRes())
+                val charIntentInfo = FavoriteHero(item.id, item.name, item.description, imageUrl)
                 intent.putExtra(CharacterDetailActivity.EXTRA_FAVORITE_HERO, charIntentInfo)
 
                 val activity = context as Activity
-                Timber.e("${item.thumbnail}")
 
                 val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     activity,
-                    UtilPairCompat.create(itemView.hero_name as View, item.name),
-                    UtilPairCompat.create(itemView.character_description as View, item.description),
-                    UtilPairCompat.create(itemView.character_image as View, item.thumbnail.toString())
+                    UtilPairCompat.create(itemView.character_name as View, item.name),
+                    UtilPairCompat.create(itemView.character_name as View, item.description),
+                    UtilPairCompat.create(itemView.row_background_image as View, imageUrl)
                 )
 
                 ContextCompat.startActivity(activity, intent, options.toBundle())
 
             }
-            hero_name.toTypeface("OpenSans-SemiBold")
-            character_description.toTypeface("OpenSans-Regular")
+            character_name.toTypeface("OpenSans-SemiBold")
 
         }
     }

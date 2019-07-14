@@ -26,11 +26,11 @@ fun TextView.toTypeface(fontName: String) {
     typeface = customTypeface
 }
 
+
 fun ImageView.load(activity: Activity, url: String, postponeTransition: Boolean = false) {
     val imageView = this
 
-
-    var requestOptions = Glide.with(context).load(url)
+    var requestOptions = Glide.with(imageView).load(url)
         .apply(
             RequestOptions()
                 .placeholder(ColorDrawable(ContextCompat.getColor(context, R.color.darkerGray)))
