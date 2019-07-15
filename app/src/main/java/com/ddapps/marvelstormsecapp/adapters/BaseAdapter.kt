@@ -2,6 +2,7 @@ package com.ddapps.marvelstormsecapp.adapters
 
 import android.support.v7.widget.RecyclerView
 import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder
+import timber.log.Timber
 
 
 abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>() {
@@ -42,23 +43,25 @@ abstract class BaseAdapter<T, VH : BaseViewHolder<T>> : RecyclerView.Adapter<VH>
         notifyItemRangeInserted(positionStart, newItems.size)
     }
 
+    fun updateItem(item: T) {
+        val itemPosition = items.indexOf(item)
+        items[itemPosition] = item
+//        Timber.i("item $item successfully updated.")
+        notifyItemChanged(itemPosition)
+    }
+
+    fun removeItem(item: T) {
+        val itemPosition = items.indexOf(item)
+        if (items.remove(item)) {
+            Timber.i("item $item successfully removed.")
+        }
+        notifyItemRemoved(itemPosition)
+    }
+
     override fun getItemCount() = items.size
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.bind(getItem(position))
     }
 }
-
-//    fun updateItem(item: T) {
-//        val itemPosition = items.indexOf(item)
-//        items[itemPosition] = item
-//        notifyItemChanged(itemPosition)
-//    }
-//
-//    fun removeItem(item: T) {
-//        val itemPosition = items.indexOf(item)
-//        if (items.remove(item)) {
-//        }
-//        notifyItemRemoved(itemPosition)
-//    }
 

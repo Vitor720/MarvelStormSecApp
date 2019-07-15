@@ -21,7 +21,6 @@ import com.ddapps.marvelstormsecapp.ui.view.ItemSpacingDecoration
 import com.ddapps.marvelstormsecapp.viewmodels.HeroListViewModel
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_hero_list.*
-import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -83,9 +82,9 @@ class HeroListFragment : DaggerFragment(), Injectable {
             hero_list_recycler.showProgress()
         }
         viewModel = (view.context as FragmentActivity).obtainViewModel(viewModelFactory, HeroListViewModel::class.java)
-        Timber.e("Chegou aqui no onViewCreated")
         heroAdapter = CharacterAdapter()
         hero_list_recycler.apply {
+            //            if (chara)
             adapter = heroAdapter
             setupMoreListener(viewModel, HeroListViewModel.RESULTS_OFFSET)
             setLayoutManager(LinearLayoutManager(context))
@@ -132,11 +131,9 @@ class HeroListFragment : DaggerFragment(), Injectable {
                 if (recyclerState != null) {
                     hero_list_recycler.recyclerView.layoutManager.onRestoreInstanceState(recyclerState)
                 }
-                heroAdapter.addItems(results)
-                for (i in results) {
 
-                }
-                //viewModel.isSearching = false
+                heroAdapter.addItems(results)
+
 
                 if (!hero_list_recycler.recyclerView.isShown) {
                     hero_list_recycler.showRecycler()
@@ -144,6 +141,7 @@ class HeroListFragment : DaggerFragment(), Injectable {
                 hero_list_recycler.hideMoreProgress()
             }
         }
+
         viewModel.allHeroesLiveData.observe(this, heroesListObserver)
         viewModel.errorLiveData.observe(this, Observer { errorMessage ->
             errorMessage?.let { Snackbar.make(hero_list_recycler, errorMessage, Snackbar.LENGTH_SHORT).show() }

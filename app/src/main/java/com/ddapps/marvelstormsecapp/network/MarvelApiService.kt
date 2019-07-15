@@ -13,7 +13,7 @@ interface MarvelApiService {
     fun getAllCharacters(@Query("offset") offset: Int = 0): Maybe<CharacterDataWrapper>
 
     @GET("/v1/public/characters")
-    fun getCharactersByName(@Query("name") query: String): Maybe<CharacterDataWrapper>
+    fun getCharactersByName(@Query("nameStartsWith") query: String): Maybe<CharacterDataWrapper>
 
     @GET("/v1/public/characters/{character_id}/comics")
     fun getCharacterComics(@Path("character_id") characterId: Long): Maybe<ComicDataWrapper>

@@ -26,14 +26,19 @@ class CharacterViewHolder(
         itemView.apply {
             character_name.text = item.name
             val imageUrl: String = item.thumbnail.toString()
+            val charIntentInfo = FavoriteHero(item.id, item.name, item.description, imageUrl)
 
+//            if (imageUrl.contains("image_not_available", ignoreCase = true))
+//
+//                else{
+//                Timber.e("Vai carregar?")
+//                row_background_image.load(context as Activity, imageUrl)
+//            }
             row_background_image.load(context as Activity, imageUrl)
-
 
             itemView.setOnClickListener {
                 Timber.e("click")
                 val intent = Intent(context, CharacterDetailActivity::class.java)
-                val charIntentInfo = FavoriteHero(item.id, item.name, item.description, imageUrl)
                 intent.putExtra(CharacterDetailActivity.EXTRA_FAVORITE_HERO, charIntentInfo)
 
                 val activity = context as Activity
@@ -44,9 +49,7 @@ class CharacterViewHolder(
                     UtilPairCompat.create(itemView.character_name as View, item.description),
                     UtilPairCompat.create(itemView.row_background_image as View, imageUrl)
                 )
-
                 ContextCompat.startActivity(activity, intent, options.toBundle())
-
             }
             character_name.toTypeface("OpenSans-SemiBold")
 

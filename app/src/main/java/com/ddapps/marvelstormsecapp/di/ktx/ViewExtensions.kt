@@ -26,7 +26,6 @@ fun TextView.toTypeface(fontName: String) {
     typeface = customTypeface
 }
 
-
 fun ImageView.load(activity: Activity, url: String, postponeTransition: Boolean = false) {
     val imageView = this
 
@@ -49,7 +48,6 @@ fun ImageView.load(activity: Activity, url: String, postponeTransition: Boolean 
                 ActivityCompat.startPostponedEnterTransition(activity)
                 return true
             }
-
 
             override fun onResourceReady(
                 resource: Drawable?,
@@ -79,6 +77,7 @@ fun View.hide() {
 fun View.gone() {
     this.visibility = View.GONE
 }
+
 
 fun ViewGroup.inflate(@LayoutRes layoutResId: Int, attachToRoot: Boolean = false): View {
     return LayoutInflater.from(this.context).inflate(layoutResId, this, attachToRoot)

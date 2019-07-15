@@ -34,8 +34,10 @@ class HeroListViewModel @Inject internal constructor(private val repository: Mar
             .flatMap { item -> Maybe.just(item.data.results) }
             .commonSubscribe(
                 { characters -> allHeroesLiveData.postValue(characters) },
+
                 { errorLiveData.postValue(R.string.network_request_error_load) }
             )
+
         compositeDisposable.add(disposable)
     }
 
@@ -47,12 +49,14 @@ class HeroListViewModel @Inject internal constructor(private val repository: Mar
                 .debounce(300, TimeUnit.MILLISECONDS)
                 .filter { query.length > 5 }
                 .flatMap { item -> Observable.just(item.data.results) }
+
                 .commonSubscribe(
                     { characters -> searchResultsLiveData.postValue(characters) },
                     {
                         errorLiveData.postValue(R.string.network_request_error)
                     }
                 )
+
             compositeDisposable.add(disposable)
         } else {
             isSearching = false
@@ -70,4 +74,6 @@ class HeroListViewModel @Inject internal constructor(private val repository: Mar
     override fun onCleared() {
         compositeDisposable.clear()
     }
+
+
 }

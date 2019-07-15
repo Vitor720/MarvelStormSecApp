@@ -27,14 +27,13 @@ class CharacterDetailViewModel @Inject internal constructor(val repository: Marv
         const val RESULTS_SIZE = 3
     }
 
-
+    //Carrega os de dados de maneira assincrona.
     fun loadCharacterDetails(characterId: Long) {
 
         loadCharacterComics(characterId)
         loadCharacterEvents(characterId)
         loadCharacterStories(characterId)
         loadCharacterSeries(characterId)
-        Timber.e("Terminou o loadCharacters!")
 
     }
 
@@ -45,8 +44,6 @@ class CharacterDetailViewModel @Inject internal constructor(val repository: Marv
                 { series -> characterSeriesLiveData.postValue(series.take(RESULTS_SIZE)) },
                 { errorLiveData.postValue(R.string.character_detail_loading_error) }
             )
-        Timber.e("Terminou o loadCharacters!")
-
         compositeDisposable.add(disposable)
     }
 

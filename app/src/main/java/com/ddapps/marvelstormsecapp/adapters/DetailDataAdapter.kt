@@ -22,6 +22,7 @@ class DetailDataAdapter : BaseAdapter<DetailData, DetailDataAdapter.DetailDataVi
     inner class DetailDataViewHolder(itemView: View) : BaseViewHolder<DetailData>(itemView) {
         override fun bind(item: DetailData) {
             itemView.apply {
+
                 detail_data_title.text = item.title
 
                 detail_data_description.text = if (item.description == null || item.description.isEmpty()) {

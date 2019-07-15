@@ -23,12 +23,13 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        Timber.plant(Timber.DebugTree())
 
         setAnimations()
+        Timber.plant(Timber.DebugTree())
 
         setContentView(R.layout.activity_main)
         setSupportActionBar(main_toolbar)
+
         supportFragmentManager.beginTransaction()
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .replace(R.id.fragment_content, HeroListFragment.newInstance())
