@@ -1,4 +1,4 @@
-package com.ddapps.marvelstormsecapp.adapters
+package com.ddapps.marvelstormsecapp.ui.adapters
 
 import android.app.Activity
 import android.content.Intent
@@ -32,6 +32,7 @@ class CharacterViewHolder(
 //
 //                else{
 //                Timber.e("Vai carregar?")
+//                Timber.e("Imagem é $imageUrl")
 //                row_background_image.load(context as Activity, imageUrl)
 //            }
             row_background_image.load(context as Activity, imageUrl)

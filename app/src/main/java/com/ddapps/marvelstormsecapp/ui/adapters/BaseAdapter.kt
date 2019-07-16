@@ -1,4 +1,4 @@
-package com.ddapps.marvelstormsecapp.adapters
+package com.ddapps.marvelstormsecapp.ui.adapters
 
 import android.support.v7.widget.RecyclerView
 import com.ddapps.marvelstormsecapp.ui.view.BaseViewHolder

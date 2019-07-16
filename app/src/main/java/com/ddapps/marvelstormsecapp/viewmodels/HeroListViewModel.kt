@@ -34,10 +34,8 @@ class HeroListViewModel @Inject internal constructor(private val repository: Mar
             .flatMap { item -> Maybe.just(item.data.results) }
             .commonSubscribe(
                 { characters -> allHeroesLiveData.postValue(characters) },
-
                 { errorLiveData.postValue(R.string.network_request_error_load) }
             )
-
         compositeDisposable.add(disposable)
     }
 
@@ -52,6 +50,8 @@ class HeroListViewModel @Inject internal constructor(private val repository: Mar
 
                 .commonSubscribe(
                     { characters -> searchResultsLiveData.postValue(characters) },
+
+
                     {
                         errorLiveData.postValue(R.string.network_request_error)
                     }
@@ -74,6 +74,4 @@ class HeroListViewModel @Inject internal constructor(private val repository: Mar
     override fun onCleared() {
         compositeDisposable.clear()
     }
-
-
 }

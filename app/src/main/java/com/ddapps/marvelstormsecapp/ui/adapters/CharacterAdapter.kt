@@ -1,4 +1,4 @@
-package com.ddapps.marvelstormsecapp.adapters
+package com.ddapps.marvelstormsecapp.ui.adapters
 
 import android.view.ViewGroup
 import com.ddapps.marvelstormsecapp.R

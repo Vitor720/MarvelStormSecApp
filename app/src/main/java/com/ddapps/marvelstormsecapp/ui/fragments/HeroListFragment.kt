@@ -13,14 +13,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.*
 import com.ddapps.marvelstormsecapp.R
-import com.ddapps.marvelstormsecapp.adapters.CharacterAdapter
 import com.ddapps.marvelstormsecapp.data.models.Character
 import com.ddapps.marvelstormsecapp.di.Injectable
 import com.ddapps.marvelstormsecapp.di.ktx.obtainViewModel
+import com.ddapps.marvelstormsecapp.ui.adapters.CharacterAdapter
 import com.ddapps.marvelstormsecapp.ui.view.ItemSpacingDecoration
 import com.ddapps.marvelstormsecapp.viewmodels.HeroListViewModel
 import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.fragment_hero_list.*
+import timber.log.Timber
 import javax.inject.Inject
 
 
@@ -49,6 +50,7 @@ class HeroListFragment : DaggerFragment(), Injectable {
         val searchView = menu?.findItem(R.id.action_search)?.actionView as SearchView
         val searchManager = context?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
+
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(queryText: String): Boolean {
                 searchCharacters(queryText)
@@ -84,11 +86,11 @@ class HeroListFragment : DaggerFragment(), Injectable {
         viewModel = (view.context as FragmentActivity).obtainViewModel(viewModelFactory, HeroListViewModel::class.java)
         heroAdapter = CharacterAdapter()
         hero_list_recycler.apply {
-            //            if (chara)
             adapter = heroAdapter
             setupMoreListener(viewModel, HeroListViewModel.RESULTS_OFFSET)
             setLayoutManager(LinearLayoutManager(context))
             addItemDecoration(ItemSpacingDecoration(topOffset = 5))
+
         }
         initObserver()
         viewModel.loadHeroes(viewModel.currentOffset)
@@ -132,8 +134,19 @@ class HeroListFragment : DaggerFragment(), Injectable {
                     hero_list_recycler.recyclerView.layoutManager.onRestoreInstanceState(recyclerState)
                 }
 
-                heroAdapter.addItems(results)
+                val mutableResults = results.toMutableList()
 
+                heroAdapter.addItems(mutableResults)
+
+                // Remove os personagens sem imagem.
+                for (char in mutableResults.iterator()) {
+                    if (char.thumbnail.toString().contains("image_not_available")) {
+                        heroAdapter.removeItem(char)
+                        Timber.e("Personagem sem foto é: ${char.thumbnail}")
+                        heroAdapter.notifyDataSetChanged()
+
+                    }
+                }
 
                 if (!hero_list_recycler.recyclerView.isShown) {
                     hero_list_recycler.showRecycler()

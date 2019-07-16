@@ -1,5 +1,6 @@
 package com.ddapps.marvelstormsecapp
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
@@ -30,10 +31,14 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         setContentView(R.layout.activity_main)
         setSupportActionBar(main_toolbar)
 
+        supportActionBar!!.setBackgroundDrawable(ColorDrawable(resources.getColor(R.color.black)))
+
+
         supportFragmentManager.beginTransaction()
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             .replace(R.id.fragment_content, HeroListFragment.newInstance())
             .commit()
+
     }
 
     override fun supportFragmentInjector(): AndroidInjector<Fragment> = dispatchingAndroidInjector

@@ -1,4 +1,4 @@
-package com.ddapps.marvelstormsecapp.adapters
+package com.ddapps.marvelstormsecapp.ui.adapters
 
 import android.app.Activity
 import android.view.View

@@ -8,14 +8,14 @@
     <!-- endregion -->
 
     <!-- Character detail sections -->
-    <string name="series_section_title">Séries</string>
-    <string name="stories_section_title">Histórias</string>
-    <string name="events_section_title">Eventos</string>
+    <string name="series_section_title">Series</string>
+    <string name="stories_section_title">History</string>
+    <string name="events_section_title">Events</string>
     <string name="comics_section_title">Comics</string>
     <!-- endregion -->
 
     <!-- region Menu items -->
-    <string name="action_search">Burcar por</string>
+    <string name="action_search">Search for</string>
     <!-- endregion -->
 
     <!-- region Error messages -->
@@ -23,7 +23,7 @@
     <string name="network_request_error_load">Erro ao carregar herois</string>
 
     <string name="character_detail_loading_error">Error ao tentar carregar mais informações do personagem</string>
-    <string name="empty_view_message">Imagem não carregada</string>
+    <string name="empty_view_message">Image not loaded</string>
     <!-- endregion -->
 
 </resources>

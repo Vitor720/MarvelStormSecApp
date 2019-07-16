@@ -5,20 +5,30 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/coordinatorLayout">
+        android:id="@+id/coordinatorLayout"
+        android:background="@color/backgroundGrafite">
 
     <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay"
-    >
+            android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
                 android:id="@+id/main_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay">
+
+            <ImageView
+                    android:id="@+id/tv_header_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/marvel_logo"/>
+
+        </android.support.v7.widget.Toolbar>
+
 
     </android.support.design.widget.AppBarLayout>
 
@@ -32,12 +42,11 @@
         <FrameLayout
                 android:id="@+id/fragment_content"
                 android:layout_width="match_parent"
-
                 android:layout_height="0dp"
-                app:layout_constrainedWidth="false" app:layout_constrainedHeight="false"
+                app:layout_constrainedWidth="false"
+                app:layout_constrainedHeight="false"
                 app:layout_constraintBottom_toBottomOf="parent"/>
 
     </android.support.constraint.ConstraintLayout>
-
 
 </android.support.design.widget.CoordinatorLayout>

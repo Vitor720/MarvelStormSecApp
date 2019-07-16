@@ -11,11 +11,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import com.ddapps.marvelstormsecapp.R
-import com.ddapps.marvelstormsecapp.adapters.DetailDataAdapter
 import com.ddapps.marvelstormsecapp.data.models.FavoriteHero
 import com.ddapps.marvelstormsecapp.di.ktx.load
 import com.ddapps.marvelstormsecapp.di.ktx.obtainViewModel
 import com.ddapps.marvelstormsecapp.di.ktx.toTypeface
+import com.ddapps.marvelstormsecapp.ui.adapters.DetailDataAdapter
 import com.ddapps.marvelstormsecapp.ui.view.ItemSpacingDecoration
 import com.ddapps.marvelstormsecapp.viewmodels.CharacterDetailViewModel
 import dagger.android.AndroidInjection
@@ -56,15 +56,12 @@ class CharacterDetailActivity : AppCompatActivity(), HasActivityInjector {
 
         detailViewModel = obtainViewModel(viewModelFactory, CharacterDetailViewModel::class.java)
 
-        Timber.i("Antes dos recyler  o CharacterDetailActivity")
-
         loadRecylerView(comics_recycler_view, comicAdapter)
         loadRecylerView(events_recycler_view, eventAdapter)
         loadRecylerView(stories_recycler_view, storyAdapter)
         loadRecylerView(series_recycler_view, seriesAdapter)
 
         setTextStyle()
-
         Timber.i("Completou o CharacterDetailActivity")
 
     }
